@@ -24,14 +24,25 @@
   color: rgba(0, 0, 0, 0.1);
   font-size: 8rem; }
 
-#add-button-modal {
+#add-button-modal-container {
   display: flex;
   justify-content: center;
+  margin-top: 2rem; }
+
+.modal-footer {
+  display: flex;
+  justify-content: center !important;
   margin-top: 2rem; }
 
 .add-button {
   overflow: hidden;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6); }
+
+#addBookButton {
+  background-color: #303f9f !important; }
+
+#modal-button {
+  background-color: #303f9f !important; }
 
 .table {
   margin-top: 2rem;

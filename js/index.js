@@ -5,35 +5,46 @@ console.log('bookStore')
 var LS_KEY = 'booksList'
 
 // Carga incial de la app
+
+var preCarga = [
+    {nombre: "Así hablo zarathustra", editorial: "Planeta agostini", autor: "Friedrich nietzsche", edicion: "2003"},
+ {nombre: "Crimen y castigo", editorial: "Libertador", autor: "Fiódor dostoyevski", edicion: "2007"},
+{nombre: "La insoportable levedad del ser", editorial: "Narrativa actual", autor: "Milan kundera"},
+ {nombre: "El nombre de la rosa", editorial: "Paidos", autor: "Umberto eco", edicion: "1999"}
+]
+
+setLocalList(LS_KEY, preCarga)
+
 var localListBook = getLocalList(LS_KEY)
 
 var mainListNode = document.getElementById('mainList')
 
 var newListBook = []
 
-var localListBook
+var localBook
 
 var newBook
 
+var modalNode = document.getElementById('exampleModal')
+
+var bodyNode = document.getElementById('body')
+
 for (var i = 0; i < localListBook.length; i++) {
-    localListBook = localListBook[i]
-  newBook = new Book(
-    localListBook.nombre,
-    localListBook.editorial,
-    localListBook.autor,
-    localListBook.edicion
+    localBook = localListBook[i]
+    newBook = new Book(
+    localBook.nombre,
+    localBook.editorial,
+    localBook.autor,
+    localBook.edicion
   )
   newListBook.push(newBook)
 
-  console.log('1' + newListBook)
-
   var trNode = createBookNode(newBook)
 
-  console.log('2' + trNode)
 
   mainListNode.appendChild(trNode)
 
-  console.log('3' + mainListNode)
+  
 }
 
 // Levantar nombre y validarlo
@@ -160,10 +171,10 @@ function addBook () {
  
 
   newListBook.push(newBook)
- console.log('4' + newBook)
+
   var trNode = createBookNode(newBook)
 
-  console.log('5' + trNode)
+
 
   mainListNode.appendChild(trNode)
 
@@ -180,93 +191,17 @@ function addBook () {
   autorInputNode.classList.remove('is-valid')
   edicionInputNode.classList.remove('is-valid')
   
+  
 
-  addBookButtonNode.disabled = true
-  console.log(newListBook)
+  addBookButtonNode.disabled = false
+
+  
 }
 
 
 
-
-
-// Levanto el nodo de búsqueda
-
-/* var searchInputNode = document.getElementById('searchText')
-
-var searchInputButton = document.getElementById('searchStudentButton')
-
-searchInputButton.onclick = searchStudentByNameOrLastName
-
-
-var searchListNode = document.getElementById('searchList')
-
-
-
-function searchStudentByNameOrLastName(event) {
-
-
-    var index = searchStudentIndexByText(searchInputNode.value, newStudentsList)
-
-    searchListNode.innerHTML = ''
-
-    if (index !== -1) {
-        var student = newStudentsList[index]
-
-        var liNode = createStudentNode(student)
-
-        searchListNode.appendChild(liNode)
-    }
-
-
-} */
-
-
-
-
-
- // Función desafío 04 que busca por coincidencia exacta
-
- /* function searchStudentIndexByText (nameOrLastName, studentsList) {
-	var index = -1
-	for (var i = 0; i < studentsList.length; i++) {
-	  var student = studentsList[i]
-	  if (
-      includesText (nameOrLastName, student.firstName) ||
-      includesText (nameOrLastName, student.lastName)
-	  ) {
-		index = i
-		break
-	  }
-	}
-	return index
-  } */
-
-  
-
-  
- // Función desafío 06 Busca por concidencia por nombre o apellido
- 
- /* function includesText (text, baseText) {
-    // Valido que ambos parámetros sean string
-    if (typeof text === 'string' && typeof baseText === 'string') {
-      // Verifico si el primer parámetro se encuentra dentro del segundo
-      var textUpperCase = text.toUpperCase()
-      var baseTextUpperCase = baseText.toUpperCase()
-      if (baseTextUpperCase.indexOf(textUpperCase) !== -1) {
-        return true
-      } else {
-        return false
-      }
-    } else {
-      return false
-    }
-  } */
-
-
-// Funcion desafío clase 08
-
 /**
- * Función que devuelve nodos td
+ * Función que devuelve nodos tr
  * @param { Student } newStudent
  * @returns Node
  */
@@ -285,12 +220,12 @@ function createBookNode(newBook) {
     '</td><td>' +
     newBook.autor +
     '</td><td>' + newBook.edicion + '</td>') + '</tr>'
-console.log(trNode)
+
   // Devuelvo solo el nodo con todos sus datos
+
   return trNode
 }
 
-// Función desafío clase 05
 
 // Función constructora
 
@@ -329,9 +264,6 @@ function Book(nombre, editorial, autor, edicion) {
 
 
 
-
-// ===== Función desafío clase 07 ======
-
 // Función que busca en el localStorage a partir de una key que se le pasa como parámetro
 // Se verifica que la key sea del tipo string, y si existe nos devuelve la lista parseada
 // sino nos devuelve un array vacío.
@@ -362,5 +294,6 @@ function setLocalList(key, list) {
     var strList = JSON.stringify(list)
     // Guardo en el localStorage pisando la key
     localStorage.setItem(key, strList)
+   
   }
 }

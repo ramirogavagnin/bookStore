@@ -12,7 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
-<body>
+<body id="body">
     
     <nav id="nav-bar" class="navbar navbar-light bg-light">
         <span class="navbar-brand mb-0 h1"> <i class="far fa-user-circle"></i></span>
@@ -38,8 +38,8 @@
                 <i class="fas fa-plus"></i>
           </div>
 
-          <div id="add-button-modal"class="container">
-         <button type="button" class="btn btn-primary add-button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Agregar</button>
+          <div id="add-button-modal-container"class="container">
+         <button type="button" id="modal-button" class="btn btn-primary add-button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Agregar</button>
             </div>
       
 
@@ -47,7 +47,7 @@
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Agregar Libro</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -73,8 +73,8 @@
                   </form>
                 </div>
                 <div class="modal-footer">
-                  
-                  <button type="button" class="btn btn-primary" id="addBookButton">Agregar</button>
+                        <button type="button" id="addBookButton" class="btn btn-secondary" data-dismiss="modal">Agregar</button>
+            
                 </div>
               </div>
             </div>
