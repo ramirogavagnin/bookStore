@@ -4,12 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass --include-path scss scss/style.scss css/style.css",
+    "build-css-compressed": "node-sass  --output-style compressed --include-path scss scss/style.scss css/style.min.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "watch-css-comp": "nodemon -e scss -x \"npm run build-css-compressed\""
   },
   "author": "Ramiro Gavagnin",
   "license": "ISC",
   "devDependencies": {
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.9"
+  },
+  "dependencies": {
+    "bootstrap": "^4.2.1"
   }
 }

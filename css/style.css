@@ -1,0 +1,39 @@
+#nav-bar {
+  background-color: #007c91 !important;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6); }
+
+.fa-user-circle {
+  color: white !important;
+  font-size: 1.5rem; }
+
+.fa-bars {
+  color: white !important;
+  font-size: 1.5rem; }
+
+.fa-power-off {
+  color: white !important;
+  font-size: 1.5rem; }
+
+#plas-icon {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em; }
+
+.fa-plus {
+  color: rgba(0, 0, 0, 0.1);
+  font-size: 8rem; }
+
+#add-button-modal {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem; }
+
+.add-button {
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6); }
+
+.table {
+  margin-top: 2rem;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); }
