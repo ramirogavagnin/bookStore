@@ -1,7 +1,5 @@
 console.log('bookStore')
 
-
-
 var LS_KEY = 'booksList'
 
 // Carga incial de la app
@@ -9,12 +7,13 @@ var LS_KEY = 'booksList'
 var preCarga = [
     {nombre: "Así hablo zarathustra", editorial: "Planeta agostini", autor: "Friedrich nietzsche", edicion: "2003"},
  {nombre: "Crimen y castigo", editorial: "Libertador", autor: "Fiódor dostoyevski", edicion: "2007"},
-{nombre: "La insoportable levedad del ser", editorial: "Narrativa actual", autor: "Milan kundera"},
+{nombre: "La insoportable levedad del ser", editorial: "Narrativa actual", autor: "Milan kundera", edicion: "2009"},
  {nombre: "El nombre de la rosa", editorial: "Paidos", autor: "Umberto eco", edicion: "1999"}
 ]
 
-setLocalList(LS_KEY, preCarga)
 
+setLocalList(LS_KEY, preCarga) 
+   
 var localListBook = getLocalList(LS_KEY)
 
 var mainListNode = document.getElementById('mainList')
@@ -24,10 +23,6 @@ var newListBook = []
 var localBook
 
 var newBook
-
-var modalNode = document.getElementById('exampleModal')
-
-var bodyNode = document.getElementById('body')
 
 for (var i = 0; i < localListBook.length; i++) {
     localBook = localListBook[i]
@@ -191,11 +186,10 @@ function addBook () {
   autorInputNode.classList.remove('is-valid')
   edicionInputNode.classList.remove('is-valid')
   
-  
 
   addBookButtonNode.disabled = false
 
-  
+
 }
 
 
@@ -238,14 +232,12 @@ function Book(nombre, editorial, autor, edicion) {
         this.nombre = ''
     }
 
-
     if (editorial) {
         this.editorial= editorial = editorial
     }
     else{
         this.editorial = ''
     }
-
 
     if (autor) {
         this.autor = autor
