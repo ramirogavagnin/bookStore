@@ -1,4 +1,3 @@
-console.log('bookStore')
 
 var LS_KEY = 'booksList'
 
@@ -11,10 +10,13 @@ var preCarga = [
  {nombre: "El nombre de la rosa", editorial: "Paidos", autor: "Umberto eco", edicion: "1999"}
 ]
 
-
-setLocalList(LS_KEY, preCarga) 
-   
 var localListBook = getLocalList(LS_KEY)
+
+if (localListBook.length === 0){
+  setLocalList(LS_KEY, preCarga) 
+}
+
+localListBook = getLocalList(LS_KEY)
 
 var mainListNode = document.getElementById('mainList')
 
@@ -200,7 +202,7 @@ function addBook () {
  * @returns Node
  */
 function createBookNode(newBook) {
-  // Creo el nodo td
+  // Creo el nodo td y tr
   var tdNode = document.createElement('td')
  var trNode = document.createElement('tr')
 
